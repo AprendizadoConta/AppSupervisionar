@@ -4,9 +4,43 @@
              x:Class="AppSupervisionar.Views.PagePrincipal" IsPresented="True">
     <MasterDetailPage.Master>
         <ContentPage Title="Menu">
-            <StackLayout Margin="10">
-                
-            </StackLayout>
+            <Grid>
+                <BoxView x:Name="bcGradient" Scale="5" AnchorX="1" AnchorY="0">
+                    <BoxView.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#6A5ACD" Offset="0.1"/>
+                            <GradientStop Color="#8A2BE2" Offset="0.5"/>
+                            <GradientStop Color="#1E90FF" Offset="0.7"/>
+                            <GradientStop Color="#40E0D0" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <StackLayout Margin="10">
+                    <Image Source="minicamera.png" HorizontalOptions="Center"/>
+                    <Label Text="Supervisionamento" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,50"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="homee.png"/>
+                        <Button x:Name="btHome" Text="HOME" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" HorizontalOptions="FillAndExpand" CornerRadius="10" Clicked="btHome_Clicked"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="cadastrar.png"/> 
+                        <Button x:Name="btCadastrar" Text="CADASTRAR" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" HorizontalOptions="FillAndExpand" CornerRadius="10" Clicked="btCadastrar_Clicked"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="lupa.png"/>
+                        <Button x:Name="btLocalizar" Text="LOCALIZAR" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" HorizontalOptions="FillAndExpand" CornerRadius="10" Clicked="btLocalizar_Clicked"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                        <Image Source="info.png"/>
+                        <Button x:Name="btDetalhes" Text="DETALHES" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" HorizontalOptions="FillAndExpand" CornerRadius="10" Clicked="btDetalhes_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
         </ContentPage>
     </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage Title="Page Principal">
+            <Label x:Name="testeDb" Text="Olá..."/>
+        </ContentPage>
+    </MasterDetailPage.Detail>
 </MasterDetailPage>
