@@ -47,7 +47,8 @@ namespace AppSupervisionar.Views
 
         private void btLocalizar_Clicked(object sender, EventArgs e)
         {
-
+            Detail = new NavigationPage(new PageListarFunc());
+            IsPresented = false;
         }
 
         private void btDetalhes_Clicked(object sender, EventArgs e)

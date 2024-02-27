@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppSupervisionar.Views.PageCadastrar">
+             x:Class="AppSupervisionar.Views.PageCadastrar" BackgroundColor="#696969">
     <ContentPage.Content>
         <StackLayout>
             <Grid>
                 <StackLayout VerticalOptions="Start" Padding="10">
                     <Label Text="Cadastro" FontSize="Title" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                    <Frame BackgroundColor="Transparent" CornerRadius="10" BorderColor="White" Margin="0,20">
+                    <Frame BackgroundColor="Transparent" CornerRadius="10" BorderColor="White" Margin="0,100">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -21,11 +21,11 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label Text="Código: " Grid.Row="0" Grid.Column="0" TextColor="White" HorizontalOptions="Start"  IsVisible="False" IsEnabled="False" VerticalOptions="Center"/> <!--Desativar isso depois no Back-End alteração de leve-->
-                            <Entry x:Name="txtCodigo" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" IsVisible="False" IsEnabled="False"/>
+                            <Entry x:Name="txtCodigo" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" IsVisible="False" IsEnabled="False" TextColor="Black"/>
                             <Label Text="Nome: " Grid.Row="1" Grid.Column="0" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            <Entry x:Name="txtFuncionario" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="Small" Placeholder="Digite o Nome do Funcionário"/>
+                            <Entry x:Name="txtFuncionario" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="Small" Placeholder="Digite o Nome do Funcionário" TextColor="White"/>
                             <Label Text="Setor: " Grid.Row="2" Grid.Column="0" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            <Picker x:Name="pckSetor" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Title="Selecione um Setor" FontSize="Small" SelectedIndexChanged="pckSetor_SelectedIndexChanged">
+                            <Picker x:Name="pckSetor" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Title="Selecione um Setor" FontSize="Small" SelectedIndexChanged="pckSetor_SelectedIndexChanged" TextColor="White">
                                 <Picker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
                                         <x:String>TI</x:String>
@@ -42,17 +42,22 @@
                                 </Picker.ItemsSource>
                             </Picker>
                             <Label Text="Turno: " Grid.Row="3" Grid.Column="0" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            <Picker x:Name="pckTurno" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Title="Selecione o Turno" FontSize="Small" SelectedIndexChanged="pckTurno_SelectedIndexChanged">
+                            <Picker x:Name="pckTurno" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Title="Selecione o Turno" FontSize="Small" SelectedIndexChanged="pckTurno_SelectedIndexChanged" TextColor="White">
                                 <Picker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
-                                        <x:String>Manhã</x:String>
-                                        <x:String>Tarde</x:String>
-                                        <x:String>Noite</x:String>
+                                        <x:String>Manhã ☀️</x:String>
+                                        <x:String>Tarde 🌇</x:String>
+                                        <x:String>Noite 🌕</x:String>
                                     </x:Array>
                                 </Picker.ItemsSource>
                             </Picker>
                         </Grid>
                     </Frame>
+                    <StackLayout>
+                        <Button x:Name="btnCadastrar" Text="Cadastrar" BackgroundColor="Black" TextColor="White" HorizontalOptions="CenterAndExpand"  FontSize="Small" CornerRadius="20" Clicked="btnCadastrar_Clicked"/>
+                        <Button x:Name="btnCancelar" Text="Cancelar" BackgroundColor="Transparent" TextColor="#FF0000" HorizontalOptions="Center" FontSize="Small" CornerRadius="20" Clicked="btnCancelar_Clicked"/>
+                        <Button x:Name="btnExcluir" Text="Excluir" BackgroundColor="#FF0000" TextColor="White" HorizontalOptions="CenterAndExpand" IsVisible="False" FontSize="Small" CornerRadius="20" Clicked="btnExcluir_Clicked"/>
+                    </StackLayout>
                 </StackLayout>
             </Grid>
         </StackLayout>

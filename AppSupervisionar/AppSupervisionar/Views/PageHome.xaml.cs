@@ -28,7 +28,9 @@ namespace AppSupervisionar.Views
 
         private void qtdLocalizar_Tapped(object sender, EventArgs e)
         {
-
+            MasterDetailPage p = (MasterDetailPage)App.Current.MainPage;
+            p.Detail = new NavigationPage(new PageListarFunc());
+            p.IsPresented = false;
         }
     }
 }

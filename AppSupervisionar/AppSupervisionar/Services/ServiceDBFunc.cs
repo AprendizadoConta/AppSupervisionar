@@ -32,7 +32,7 @@ namespace AppSupervisionar.Services
                 int result = conn.Insert(Funcionario);
                 if (result != 0)
                 {
-                    this.StatusMessage = string.Format("{0} funcionários(s) adicionado(s): [Funcionario: {1}]", result, Funcionario.Nome);
+                    this.StatusMessage = string.Format("{0} funcionários(s) foi adicionado(s). Funcionario: {1}", result, Funcionario.Nome);
                 }
                 else
                 {
@@ -86,7 +86,7 @@ namespace AppSupervisionar.Services
             try
             {
                 int result = conn.Table<ModelFunc>().Delete(r => r.Id == id);
-                StatusMessage = string.Format("Funcionário {0} deletado!", result);
+                StatusMessage = string.Format("Dados do Funcionário {0} foram deletados!", result);
             }
             catch (Exception ex)
             {
