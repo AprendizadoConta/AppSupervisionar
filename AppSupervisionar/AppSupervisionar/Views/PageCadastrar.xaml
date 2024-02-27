@@ -20,7 +20,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Label Text="Código: " Grid.Row="0" Grid.Column="0" TextColor="White" HorizontalOptions="Start"  IsVisible="False" IsEnabled="False" VerticalOptions="Center"/> <!--Desativar isso depois no Back-End-->
+                            <Label Text="Código: " Grid.Row="0" Grid.Column="0" TextColor="White" HorizontalOptions="Start"  IsVisible="False" IsEnabled="False" VerticalOptions="Center"/> <!--Desativar isso depois no Back-End alteração de leve-->
                             <Entry x:Name="txtCodigo" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" IsVisible="False" IsEnabled="False"/>
                             <Label Text="Nome: " Grid.Row="1" Grid.Column="0" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center"/>
                             <Entry x:Name="txtFuncionario" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="Small" Placeholder="Digite o Nome do Funcionário"/>
