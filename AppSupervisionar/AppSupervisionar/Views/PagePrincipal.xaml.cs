@@ -41,7 +41,8 @@ namespace AppSupervisionar.Views
 
         private void btCadastrar_Clicked(object sender, EventArgs e)
         {
-
+            Detail = new NavigationPage(new PageCadastrar());
+            IsPresented = false;
         }
 
         private void btLocalizar_Clicked(object sender, EventArgs e)

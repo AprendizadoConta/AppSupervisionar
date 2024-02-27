@@ -3,19 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSupervisionar.Views.PageHome" Title="Supervisionamento">
     <ContentPage.Content>
-        <Grid>
-            <BoxView x:Name="bcGradient" Scale="4" AnchorX="1" AnchorY="0">
-                <BoxView.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#00BFFF" Offset="0.5"/>
-                        <GradientStop Color="#00FF7F" Offset="0.7"/>
-                        <GradientStop Color="#ADFF2F" Offset="0.8"/>
-                        <GradientStop Color="#FFFF00" Offset="0.9"/>
-                        <GradientStop Color="#FFA500" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </BoxView.Background>
-            </BoxView>
-            <Grid Margin="20">
+        <Grid Margin="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="100"/>
@@ -39,6 +27,6 @@
                 <Label Text="Cadastrar" Grid.Row="2" Grid.Column="0" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
                 <Label Text="Localizar" Grid.Row="2" Grid.Column="1" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
             </Grid>
-        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

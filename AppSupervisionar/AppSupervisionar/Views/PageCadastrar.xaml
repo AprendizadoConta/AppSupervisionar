@@ -4,9 +4,57 @@
              x:Class="AppSupervisionar.Views.PageCadastrar">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid>
+                <StackLayout VerticalOptions="Start" Padding="10">
+                    <Label Text="Cadastro" FontSize="Title" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <Frame BackgroundColor="Transparent" CornerRadius="10" BorderColor="White" Margin="0,20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Text="Código: " Grid.Row="0" Grid.Column="0" TextColor="White" HorizontalOptions="Start"  IsVisible="False" IsEnabled="False" VerticalOptions="Center"/> <!--Desativar isso depois no Back-End-->
+                            <Entry x:Name="txtCodigo" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" IsVisible="False" IsEnabled="False"/>
+                            <Label Text="Nome: " Grid.Row="1" Grid.Column="0" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Entry x:Name="txtFuncionario" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="Small" Placeholder="Digite o Nome do Funcionário"/>
+                            <Label Text="Setor: " Grid.Row="2" Grid.Column="0" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Picker x:Name="pckSetor" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Title="Selecione um Setor" FontSize="Small" SelectedIndexChanged="pckSetor_SelectedIndexChanged">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>TI</x:String>
+                                        <x:String>Recursos Humanos</x:String>
+                                        <x:String>Marketing</x:String>
+                                        <x:String>Financeiro</x:String>
+                                        <x:String>Vendas</x:String>
+                                        <x:String>Produção</x:String>
+                                        <x:String>Logística</x:String>
+                                        <x:String>Qualidade</x:String>
+                                        <x:String>Atendimento ao Cliente</x:String>
+                                        <x:String>Administrativo</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Label Text="Turno: " Grid.Row="3" Grid.Column="0" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Picker x:Name="pckTurno" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Title="Selecione o Turno" FontSize="Small" SelectedIndexChanged="pckTurno_SelectedIndexChanged">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Manhã</x:String>
+                                        <x:String>Tarde</x:String>
+                                        <x:String>Noite</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

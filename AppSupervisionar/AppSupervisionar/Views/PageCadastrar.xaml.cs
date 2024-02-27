@@ -16,5 +16,15 @@ namespace AppSupervisionar.Views
         {
             InitializeComponent();
         }
+
+        private void pckSetor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pckTurno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

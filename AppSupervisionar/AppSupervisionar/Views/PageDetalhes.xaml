@@ -3,12 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSupervisionar.Views.PageDetalhes" Title="Detalhes">
     <ContentPage.Content>
-        <AbsoluteLayout BackgroundColor="#6495ED">
-            <Frame x:Name="frame" WidthRequest="250" BorderColor="White" BackgroundColor="Transparent"
+        <Grid>
+            <BoxView x:Name="bcGradient" Scale="4" AnchorX="1" AnchorY="0">
+                <BoxView.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#00BFFF" Offset="0.5"/>
+                        <GradientStop Color="#00FF7F" Offset="0.7"/>
+                        <GradientStop Color="#ADFF2F" Offset="0.8"/>
+                        <GradientStop Color="#FFFF00" Offset="0.9"/>
+                        <GradientStop Color="#FFA500" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <AbsoluteLayout>
+                <Frame x:Name="frame" WidthRequest="250" BorderColor="White" BackgroundColor="Transparent"
                AbsoluteLayout.LayoutFlags="PositionProportional"
                AbsoluteLayout.LayoutBounds="0.5, 0.5">
-                <Label Text="Desenvolvido por: Victor" TextColor="White" HorizontalTextAlignment="Center" FontSize="30"/>
-            </Frame>
-        </AbsoluteLayout>
+                    <Label Text="Desenvolvido por: Victor" TextColor="White" HorizontalTextAlignment="Center" FontSize="30"/>
+                </Frame>
+            </AbsoluteLayout>
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

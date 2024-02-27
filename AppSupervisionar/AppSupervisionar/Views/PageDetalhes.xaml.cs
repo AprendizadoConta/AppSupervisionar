@@ -15,6 +15,19 @@ namespace AppSupervisionar.Views
         public PageDetalhes()
         {
             InitializeComponent();
+            Task.Run(AnimatedBackground);
+        }
+        private async void AnimatedBackground()
+        {
+            Action<double> forward = input => bcGradient.AnchorY = input;
+            Action<double> backward = input => bcGradient.AnchorY = input;
+            while (true)
+            {
+                bcGradient.Animate(name: "forward", callback: forward, start: 0, end: 1, length: 5000, easing: Easing.SinIn);
+                await Task.Delay(5000);
+                bcGradient.Animate(name: "backward", callback: backward, start: 1, end: 0, length: 5000, easing: Easing.SinIn);
+                await Task.Delay(5000);
+            }
         }
     }
 }
