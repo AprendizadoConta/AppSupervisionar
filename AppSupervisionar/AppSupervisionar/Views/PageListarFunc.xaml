@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppSupervisionar.Views.PageListarFunc">
+             x:Class="AppSupervisionar.Views.PageListarFunc" BackgroundColor="#696969">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout VerticalOptions="Start">
@@ -36,6 +36,7 @@
                             </Picker.ItemsSource>
                         </Picker>
                         <Button x:Name="btnLocalizar" Text="Localizar" TextColor="White" BackgroundColor="#00FF7F" Grid.Row="0" Grid.Column="5" VerticalOptions="Center" CornerRadius="10" Clicked="btnLocalizar_Clicked"/>
+                        <Button x:Name="btnLimpar" Text="Limpar" TextColor="White" BackgroundColor="#FFA500" Grid.Row="1" Grid.Column="5" VerticalOptions="Center" CornerRadius="10" Clicked="btnLimpar_Clicked"/>
                     </Grid>
                 </Frame>
             </StackLayout>
@@ -51,12 +52,12 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="Turno: Manhã ☀️" Grid.Row="0" Grid.Column="0" TextColor="White" HorizontalOptions="Center"/>
-                    <Label Text="Qtd:    " Grid.Row="1" Grid.Column="0" TextColor="White" HorizontalOptions="Center"/>
+                    <Label Text="Turno: Manhã ☀" Grid.Row="0" Grid.Column="0" TextColor="White" HorizontalOptions="Center"/>
+                    <Label x:Name="qtdManha" Text="Qtd:    " Grid.Row="1" Grid.Column="0" TextColor="White" HorizontalOptions="Center"/>
                     <Label Text="Turno: Tarde 🌇" Grid.Row="0" Grid.Column="1" TextColor="White" HorizontalOptions="Center"/>
-                    <Label Text="Qtd:    " Grid.Row="1" Grid.Column="1" TextColor="White" HorizontalOptions="Center"/>
+                    <Label x:Name="qtdTarde" Text="Qtd:    " Grid.Row="1" Grid.Column="1" TextColor="White" HorizontalOptions="Center"/>
                     <Label Text="Turno: Noite 🌕" Grid.Row="0" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
-                    <Label Text="Qtd:    " Grid.Row="1" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
+                    <Label x:Name="qtdNoite" Text="Qtd:    " Grid.Row="1" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
                     <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand"/>
                     <ListView x:Name="ListFunc" Grid.Row="3" Grid.Column="0" HasUnevenRows="True"  SeparatorColor="White" Margin="15" ItemSelected="ListFunc_ItemSelected">
                         <ListView.ItemTemplate>
@@ -71,7 +72,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <ListView x:Name="ListFuncTarde"  Grid.Row="4" Grid.Column="1" HasUnevenRows="True" SeparatorColor="White" Margin="15" ItemSelected="ListFuncTarde_ItemSelected">
+                    <ListView x:Name="ListFuncTarde"  Grid.Row="3" Grid.Column="1" HasUnevenRows="True" SeparatorColor="White" Margin="15" ItemSelected="ListFuncTarde_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -84,7 +85,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <ListView x:Name="ListFuncNoite" Grid.Row="4" Grid.Column="2" HasUnevenRows="True" SeparatorColor="White" Margin="15" ItemSelected="ListFuncNoite_ItemSelected">
+                    <ListView x:Name="ListFuncNoite" Grid.Row="3" Grid.Column="2" HasUnevenRows="True" SeparatorColor="White" Margin="15" ItemSelected="ListFuncNoite_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -99,6 +100,7 @@
                     </ListView>
                 </Grid>
             </Frame>
+            <Button x:Name="btnVoltar" Text="Voltar" TextColor="White" BackgroundColor="#FF0000" HorizontalOptions="Center" VerticalOptions="End" CornerRadius="10" Clicked="btnVoltar_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,30 +9,40 @@ using AppSupervisionar.Services;//adicionei
 
 namespace AppSupervisionar.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PageListarFunc : ContentPage
-	{
-		public PageListarFunc ()
-		{
-			InitializeComponent();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PageListarFunc : ContentPage
+    {
+        public PageListarFunc()
+        {
+            InitializeComponent();
             AtualizarLista();
-		}
+        }
+
         public void AtualizarLista()
         {
-            String nome = "";
-            String turno = "";
-            if (txtFuncionario.Text != null) nome = txtFuncionario.Text;
-            if (pckTurno.SelectedItem != null) 
-            {
-                turno = pckTurno.SelectedItem.ToString();
-            }
+            string nome = txtFuncionario.Text ?? "";
+            string turno = pckTurno.SelectedItem?.ToString() ?? "";
+
             ServiceDBFunc dBFunc = new ServiceDBFunc(App.DbCaminho);
-            ListFunc.ItemsSource = dBFunc.Localizar(nome,turno);
+            List<ModelFunc> listaFunc = dBFunc.Localizar(nome, turno);
+
+            ListFunc.ItemsSource = listaFunc.Where(f => f.Turno == "Manhã ☀").ToList();
+            ListFuncTarde.ItemsSource = listaFunc.Where(f => f.Turno == "Tarde 🌇").ToList();
+            ListFuncNoite.ItemsSource = listaFunc.Where(f => f.Turno == "Noite 🌕").ToList();
+
+            
+            qtdManha.Text = $"Qtd: {ListFunc.ItemsSource?.Cast<object>().Count() ?? 0}";
+            qtdTarde.Text = $"Qtd: {ListFuncTarde.ItemsSource?.Cast<object>().Count() ?? 0}";
+            qtdNoite.Text = $"Qtd: {ListFuncNoite.ItemsSource?.Cast<object>().Count() ?? 0}";
+
+            ListFunc.IsVisible = true;
+            ListFuncTarde.IsVisible = true;
+            ListFuncNoite.IsVisible = true;
         }
 
         private void pckTurno_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            AtualizarLista();
         }
 
         private void btnLocalizar_Clicked(object sender, EventArgs e)
@@ -45,54 +52,45 @@ namespace AppSupervisionar.Views
 
         private void ListFunc_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            ServiceDBFunc dBFunc = new ServiceDBFunc(App.DbCaminho);
-            List<ModelFunc> listaFunc = dBFunc.Listar();
-           
-            if (e.SelectedItem == null)
-                return;
-            var selectItem = e.SelectedItem as ModelFunc;
-            if (selectItem.Turno == "Manhã ☀️")
-            {
-                ListFuncTarde.IsVisible = false;
-                ListFuncNoite.IsVisible = false;
-                var funcionariosManha = listaFunc.Where(f => f.Turno == "Manhã ☀️").ToList();
-                ListFunc.ItemsSource= funcionariosManha;
-                ListFunc.IsVisible = true;
-            }
+            ListFuncTarde.IsVisible = false;
+            ListFuncNoite.IsVisible = false;
+            ModelFunc func = (ModelFunc)ListFunc.SelectedItem;
+            MasterDetailPage p = (MasterDetailPage)Application.Current.MainPage;
+            p.Detail = new NavigationPage(new PageCadastrar());
+            p.Detail= new NavigationPage(new PageCadastrar(func));
         }
 
         private void ListFuncTarde_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            ServiceDBFunc dBFunc = new ServiceDBFunc(App.DbCaminho);
-            List<ModelFunc> listaFunc = dBFunc.Listar();
-            if (e.SelectedItem == null)
-                return;
-            var selectItem = e.SelectedItem as ModelFunc;
-            if (selectItem.Turno == "Tarde 🌇")
-            {
-                ListFunc.IsVisible= false;
-                ListFuncNoite.IsVisible = false;
-                var funcionariosTarde = listaFunc.Where(f => f.Turno == "Tarde 🌇").ToList();
-                ListFuncTarde.ItemsSource = funcionariosTarde;
-                ListFuncTarde.IsVisible = true;
-            }
+            ListFunc.IsVisible = false;
+            ListFuncNoite.IsVisible = false;
+            ModelFunc func = (ModelFunc)ListFuncTarde.SelectedItem;
+            MasterDetailPage p = (MasterDetailPage)Application.Current.MainPage;
+            p.Detail = new NavigationPage(new PageCadastrar());
+            p.Detail = new NavigationPage(new PageCadastrar(func));
         }
 
         private void ListFuncNoite_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            ServiceDBFunc dBFunc = new ServiceDBFunc(App.DbCaminho);
-            List<ModelFunc> listaFunc = dBFunc.Listar();
-            if (e.SelectedItem == null)
-                return;
-            var selectItem = e.SelectedItem as ModelFunc;
-            if (selectItem.Turno == "Noite 🌕")
-            {
-                ListFunc.IsVisible= false;
-                ListFuncTarde.IsVisible = false;
-                var funcionariosNoite = listaFunc.Where(f => f.Turno == "Noite 🌕").ToList();
-                ListFuncNoite.ItemsSource = funcionariosNoite;
-                ListFuncNoite.IsVisible = true;
-            }
+            ListFunc.IsVisible = false;
+            ListFuncTarde.IsVisible = false;
+            ModelFunc func = (ModelFunc)ListFuncNoite.SelectedItem;
+            MasterDetailPage p = (MasterDetailPage)Application.Current.MainPage;
+            p.Detail = new NavigationPage(new PageCadastrar());
+            p.Detail = new NavigationPage(new PageCadastrar(func));
+        }
+
+        private void btnLimpar_Clicked(object sender, EventArgs e)
+        {
+            txtFuncionario.Text = null;
+            pckTurno.SelectedItem = null;
+            AtualizarLista();
+        }
+
+        private void btnVoltar_Clicked(object sender, EventArgs e)
+        {
+            MasterDetailPage p = (MasterDetailPage)Application.Current.MainPage;
+            p.Detail = new NavigationPage(new PageHome());
         }
     }
 }

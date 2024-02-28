@@ -22,6 +22,7 @@ namespace AppSupervisionar.Views
         {
             InitializeComponent();
             btnCadastrar.Text = "Editar";
+            lblCodigo.IsVisible = true;
             txtCodigo.IsVisible = true;
             btnExcluir.IsVisible = true;
             txtCodigo.Text = func.Id.ToString();
