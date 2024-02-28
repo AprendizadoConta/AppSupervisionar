@@ -45,17 +45,54 @@ namespace AppSupervisionar.Views
 
         private void ListFunc_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            ServiceDBFunc dBFunc = new ServiceDBFunc(App.DbCaminho);
+            List<ModelFunc> listaFunc = dBFunc.Listar();
+           
+            if (e.SelectedItem == null)
+                return;
+            var selectItem = e.SelectedItem as ModelFunc;
+            if (selectItem.Turno == "Manhã ☀️")
+            {
+                ListFuncTarde.IsVisible = false;
+                ListFuncNoite.IsVisible = false;
+                var funcionariosManha = listaFunc.Where(f => f.Turno == "Manhã ☀️").ToList();
+                ListFunc.ItemsSource= funcionariosManha;
+                ListFunc.IsVisible = true;
+            }
         }
 
         private void ListFuncTarde_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            ServiceDBFunc dBFunc = new ServiceDBFunc(App.DbCaminho);
+            List<ModelFunc> listaFunc = dBFunc.Listar();
+            if (e.SelectedItem == null)
+                return;
+            var selectItem = e.SelectedItem as ModelFunc;
+            if (selectItem.Turno == "Tarde 🌇")
+            {
+                ListFunc.IsVisible= false;
+                ListFuncNoite.IsVisible = false;
+                var funcionariosTarde = listaFunc.Where(f => f.Turno == "Tarde 🌇").ToList();
+                ListFuncTarde.ItemsSource = funcionariosTarde;
+                ListFuncTarde.IsVisible = true;
+            }
         }
 
         private void ListFuncNoite_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            ServiceDBFunc dBFunc = new ServiceDBFunc(App.DbCaminho);
+            List<ModelFunc> listaFunc = dBFunc.Listar();
+            if (e.SelectedItem == null)
+                return;
+            var selectItem = e.SelectedItem as ModelFunc;
+            if (selectItem.Turno == "Noite 🌕")
+            {
+                ListFunc.IsVisible= false;
+                ListFuncTarde.IsVisible = false;
+                var funcionariosNoite = listaFunc.Where(f => f.Turno == "Noite 🌕").ToList();
+                ListFuncNoite.ItemsSource = funcionariosNoite;
+                ListFuncNoite.IsVisible = true;
+            }
         }
     }
 }

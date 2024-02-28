@@ -58,7 +58,7 @@
                     <Label Text="Turno: Noite 🌕" Grid.Row="0" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
                     <Label Text="Qtd:    " Grid.Row="1" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
                     <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand"/>
-                    <ListView x:Name="ListFunc" Grid.Row="3" Grid.Column="0" HasUnevenRows="False" SeparatorColor="White" Margin="15" ItemSelected="ListFunc_ItemSelected">
+                    <ListView x:Name="ListFunc" Grid.Row="3" Grid.Column="0" HasUnevenRows="True"  SeparatorColor="White" Margin="15" ItemSelected="ListFunc_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -71,7 +71,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <ListView x:Name="ListFuncTarde"  Grid.Row="4" Grid.Column="1" HasUnevenRows="False" SeparatorColor="White" Margin="15" ItemSelected="ListFuncTarde_ItemSelected">
+                    <ListView x:Name="ListFuncTarde"  Grid.Row="4" Grid.Column="1" HasUnevenRows="True" SeparatorColor="White" Margin="15" ItemSelected="ListFuncTarde_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -84,7 +84,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <ListView x:Name="ListFuncNoite" Grid.Row="4" Grid.Column="2" HasUnevenRows="False" SeparatorColor="White" Margin="15" ItemSelected="ListFuncNoite_ItemSelected">
+                    <ListView x:Name="ListFuncNoite" Grid.Row="4" Grid.Column="2" HasUnevenRows="True" SeparatorColor="White" Margin="15" ItemSelected="ListFuncNoite_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
