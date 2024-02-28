@@ -45,7 +45,7 @@
                             <Picker x:Name="pckTurno" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Title="Selecione o Turno" FontSize="Small" SelectedIndexChanged="pckTurno_SelectedIndexChanged" TextColor="White">
                                 <Picker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
-                                        <x:String>Manhã ☀️</x:String>
+                                        <x:String>Manhã ☀</x:String>
                                         <x:String>Tarde 🌇</x:String>
                                         <x:String>Noite 🌕</x:String>
                                     </x:Array>

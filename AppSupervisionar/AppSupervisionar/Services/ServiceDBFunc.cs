@@ -94,12 +94,12 @@ namespace AppSupervisionar.Services
             }
         }
 
-        public List<ModelFunc> Localizar(string nome, int Id)//localizar geral
+        public List<ModelFunc> Localizar(string nome, string turno)//localizar geral /tirei o Id
         {
             List<ModelFunc> lista = new List<ModelFunc>();
             try
             {
-                var resp = from p in conn.Table<ModelFunc>() where p.Id == Id && p.Nome.ToLower().Contains(nome.ToLower())select p;//Caso fica chato de procurar tirar o Id
+                var resp = from p in conn.Table<ModelFunc>() where p.Turno.ToLower().Contains(turno.ToLower()) && p.Nome.ToLower().Contains(nome.ToLower())select p;//Caso ficar chato de procurar, tirar o Id
                 lista=resp.ToList();
             }
             catch (Exception ex)

@@ -4,7 +4,101 @@
              x:Class="AppSupervisionar.Views.PageListarFunc">
     <ContentPage.Content>
         <StackLayout>
-            
+            <StackLayout VerticalOptions="Start">
+                <Label Text="Localizar" FontSize="Title" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <StackLayout>
+                <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="10" Margin="4.5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Nome: " Grid.Row="0" Grid.Column="0" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Entry x:Name="txtFuncionario" Keyboard="Default" TextColor="White" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="Small" Placeholder="Digite o Nome do Funcionário"/>
+                        <Label Text="Turno: " Grid.Row="1" Grid.Column="0" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Picker x:Name="pckTurno" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Title="Selecione o Turno" FontSize="Small" TextColor="White" SelectedIndexChanged="pckTurno_SelectedIndexChanged">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Manhã ☀</x:String>
+                                    <x:String>Tarde 🌇</x:String>
+                                    <x:String>Noite 🌕</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Button x:Name="btnLocalizar" Text="Localizar" TextColor="White" BackgroundColor="#00FF7F" Grid.Row="0" Grid.Column="5" VerticalOptions="Center" CornerRadius="10" Clicked="btnLocalizar_Clicked"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="10" Margin="4.5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Turno: Manhã ☀️" Grid.Row="0" Grid.Column="0" TextColor="White" HorizontalOptions="Center"/>
+                    <Label Text="Qtd:    " Grid.Row="1" Grid.Column="0" TextColor="White" HorizontalOptions="Center"/>
+                    <Label Text="Turno: Tarde 🌇" Grid.Row="0" Grid.Column="1" TextColor="White" HorizontalOptions="Center"/>
+                    <Label Text="Qtd:    " Grid.Row="1" Grid.Column="1" TextColor="White" HorizontalOptions="Center"/>
+                    <Label Text="Turno: Noite 🌕" Grid.Row="0" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
+                    <Label Text="Qtd:    " Grid.Row="1" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
+                    <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand"/>
+                    <ListView x:Name="ListFunc" Grid.Row="3" Grid.Column="0" HasUnevenRows="False" SeparatorColor="White" Margin="15" ItemSelected="ListFunc_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="{Binding Id,StringFormat='Código: {0}'}"/>
+                                        <Label Text="{Binding Nome,StringFormat='Nome: {0}'}"/>
+                                        <Label Text="{Binding Setor,StringFormat='Setor: {0}'}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView x:Name="ListFuncTarde"  Grid.Row="4" Grid.Column="1" HasUnevenRows="False" SeparatorColor="White" Margin="15" ItemSelected="ListFuncTarde_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="{Binding Id,StringFormat='Código: {0}'}"/>
+                                        <Label Text="{Binding Nome,StringFormat='Nome: {0}'}"/>
+                                        <Label Text="{Binding Setor,StringFormat='Setor: {0}'}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView x:Name="ListFuncNoite" Grid.Row="4" Grid.Column="2" HasUnevenRows="False" SeparatorColor="White" Margin="15" ItemSelected="ListFuncNoite_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="{Binding Id,StringFormat='Código: {0}'}"/>
+                                        <Label Text="{Binding Nome,StringFormat='Nome: {0}'}"/>
+                                        <Label Text="{Binding Setor,StringFormat='Setor: {0}'}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

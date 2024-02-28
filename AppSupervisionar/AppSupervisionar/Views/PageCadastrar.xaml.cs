@@ -26,8 +26,8 @@ namespace AppSupervisionar.Views
             btnExcluir.IsVisible = true;
             txtCodigo.Text = func.Id.ToString();
             txtFuncionario.Text = func.Nome;
-            pckSetor.SelectedItem = func.Setor.ToString(); //vir aqui e tentar apagar esse .toString();
-            pckTurno.SelectedItem = func.Turno.ToString();
+            pckSetor.SelectedItem = func.Setor; //vir aqui e tentar apagar esse .toString();
+            pckTurno.SelectedItem = func.Turno;
         }
 
         private void pckSetor_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace AppSupervisionar.Views
             }
             catch (Exception ex)
             {
-                DisplayAlert("Erro", ex.Message,"OK");
+                DisplayAlert("Erro", "Preencha os Campos","OK");
             }
         }
 
